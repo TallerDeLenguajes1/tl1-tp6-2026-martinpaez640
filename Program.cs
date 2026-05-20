@@ -102,6 +102,39 @@ while (operacion == 0)
             Console.WriteLine("Numero ingresado no valido");
         }
     } while (!p);
-    
 
+
+}
+float num1, num2;
+do
+{
+    Console.WriteLine("Ingrese el primer numero: ");
+    aux = Console.ReadLine();
+    p = float.TryParse(aux, out num1);
+    if (!p)
+    {
+        Console.WriteLine("Numero ingresado no valido");
+    }
+} while (!p);
+do
+{
+    Console.WriteLine("Ingrese el segundo numero: ");
+    aux = Console.ReadLine();
+    p = float.TryParse(aux, out num2);
+    if (!p)
+    {
+        Console.WriteLine("Numero ingresado no valido");
+    }
+} while (!p);
+if (num1 == num2)
+{
+    Console.WriteLine("Ambos numeros son iguales");
+}
+else if (num1 > num2)
+{
+    Console.WriteLine($"El numero {num1} es mayor");
+}
+else
+{
+    Console.WriteLine($"El numero {num2} es mayor");
 }
