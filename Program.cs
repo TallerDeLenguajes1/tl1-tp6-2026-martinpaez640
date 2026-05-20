@@ -102,6 +102,6 @@ while (operacion == 0)
             Console.WriteLine("Numero ingresado no valido");
         }
     } while (!p);
-
+    
 
 }
