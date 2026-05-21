@@ -102,83 +102,82 @@ while (operacion == 0)
         }
     } while (!p);
 }
-int opcion = 0, operacion = 0;
-float num, result;
-string? aux;
-bool p;
-while (operacion == 0)
+int opcion1 = 0, operacion1 = 0;
+float num, result1;
+string? aux1;
+bool p1;
+while (operacion1 == 0)
 {
     do
     {
         Console.WriteLine("0: Valor absoluto 1: Cuadrado de un numero 2: Raiz cuadrada 3: seno de un numero 4: coseno de un numero 5: parte entera de un numero ");
-        aux = Console.ReadLine();
-        p = int.TryParse(aux, out opcion);
-        if (!p)
+        aux1 = Console.ReadLine();
+        p1 = int.TryParse(aux1, out opcion1);
+        if (!p1)
         {
             Console.WriteLine("Numero ingresado no valido");
         }
-        if (opcion < 0 || opcion > 5)
+        if (opcion1 < 0 || opcion1 > 5)
         {
             Console.WriteLine("Numero ingresado fuera de rango");
-            p = false;
+            p1 = false;
         }
-    } while (!p);
+    } while (!p1);
 
     do
     {
         Console.WriteLine("Seleccione un numero para trabajar: ");
-        aux = Console.ReadLine();
-        p = float.TryParse(aux, out num);
-        if (!p)
+        aux1 = Console.ReadLine();
+        p1 = float.TryParse(aux1, out num);
+        if (!p1)
         {
             Console.WriteLine("Numero ingresado no valido");
         }
-        if (opcion == 2 && num < 0)
+        if (opcion1 == 2 && num < 0)
         {
             Console.WriteLine("La raiz cuadrada solo trabaja con numeros positivos");
-            p = false;
+            p1 = false;
         }
-    } while (!p);
+    } while (!p1);
 
-    switch (opcion)
+    switch (opcion1)
     {
         case 0:
-            result = Math.Abs(num);
+            result1 = Math.Abs(num);
             break;
         case 1:
-            result = num * num;
+            result1 = num * num;
             break;
         case 2:
-            result = (float)Math.Sqrt(num);
+            result1 = (float)Math.Sqrt(num);
             break;
         case 3:
-            result = (float)Math.Sin(num);
+            result1 = (float)Math.Sin(num);
             break;
         case 4:
-            result = (float)Math.Cos(num);
+            result1 = (float)Math.Cos(num);
             break;
         case 5:
-            result = (int)num;
+            result1 = (int)num;
             break;
         default:
-            result = 0;
+            result1 = 0;
             break;
     }
-    Console.WriteLine($"El resultado de la operacion es: {result}");
+    Console.WriteLine($"El resultado de la operacion es: {result1}");
     do
     {
         Console.WriteLine("Seleccione 0 para realizar otra operacion: ");
-        aux = Console.ReadLine();
-        p = int.TryParse(aux, out operacion);
-        if (!p)
+        aux1 = Console.ReadLine();
+        p1 = int.TryParse(aux1, out operacion1);
+        if (!p1)
         {
             Console.WriteLine("Numero ingresado no valido");
         }
-    } while (!p);
+    } while (!p1);
 
 
 }
-float num1, num2;
 do
 {
     Console.WriteLine("Ingrese el primer numero: ");
@@ -210,4 +209,43 @@ else if (num1 > num2)
 else
 {
     Console.WriteLine($"El numero {num2} es mayor");
+}
+Console.WriteLine("Ingrese una palabra: ");
+string? palabra = Console.ReadLine();
+if (palabra != null)
+{
+    int palabraLong = palabra.Length;
+    Console.WriteLine($"La longitud de la cadena es: {palabraLong}");
+}
+Console.WriteLine("Ingrese otra palabra: ");
+string? palabra1 = Console.ReadLine();
+if (palabra != null && palabra1 != null)
+{
+    string Unida = $"{palabra}{palabra1}";
+    Console.WriteLine($"La palabra concatenada es: {Unida}");
+    string? sub = Unida.Substring(0, 2);
+    Console.WriteLine($"Sub cadena: {sub}");
+
+    Console.WriteLine("Ingrese un caracter: ");
+    string? letra = Console.ReadLine();
+    if (letra != null)
+    {
+        string[] separado = Unida.Split(letra);
+        Console.WriteLine($"Sub cadena 1: {separado[0]} Sub cadena 2: {separado[1]}");
+    }
+    Console.WriteLine("Ingrese un caracter: ");
+    char? c = Console.ReadLine()[0];
+    int frecuencia = 0;
+    foreach (char x in Unida)
+    {
+        if (x == c)
+        {
+            frecuencia++;
+        }
+        Console.WriteLine(x);
+    }
+    Console.WriteLine($"La cantidad de frecuencia de {c} es {frecuencia}");
+    string? Mayuscula = Unida.ToLower();
+    string? Minuscula = Unida.ToUpper();
+    Console.WriteLine($"La palabra en mayuscula es: {Mayuscula}, La palabra en minuscula es: {Minuscula}");
 }
